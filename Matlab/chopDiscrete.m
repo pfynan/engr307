@@ -3,13 +3,13 @@ function [ sgs ] = chopDiscrete( signal )
 %   Detailed explanation goes here
 % http://www.mathworks.com/help/dsp/examples/envelope-detection.html
 
-threshold = 0.8;
+threshold = 0.5;
 bs = 128;
 count = ceil(length(signal)/bs);
 signal(count*bs) = 0;
 
-raw = mat2cell(signal,[1],bs* ones(1,count));
-p = cellfun(@(s) sum(s.*s)/length(s),raw);
-sgs = raw(p > threshold);
+raw = reshape(signal,bs,count);
+p = sum(raw.*raw,1)/bs;
+sgs = num2cell(repmat(p > threshold,bs,1) .* raw,1);
 end
 
