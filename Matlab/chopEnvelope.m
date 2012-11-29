@@ -4,6 +4,8 @@ b = fir2(20, [0 0.05 0.1 1], [1 1 0 0]);
 dsf = 3;
 cutoff = 0.3;
 envelope = abs(sqrt(filter(b,1,decimate(2*signal.*signal,dsf))));
+ien = interp(envelope,dsf);
+plot(1:length(signal),signal,'b',1:length(ien),ien > cutoff,'r')
 idxs = [find(diff(envelope > cutoff))*dsf length(signal)];
 
 ntones = floor(length(idxs)/2);
