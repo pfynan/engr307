@@ -1,3 +1,4 @@
+%code borrowed from?
 function y=compexp(x,comp,a)
 
 % Compressor/expander from DAFX, Zolzer
@@ -19,3 +20,4 @@ figure ;
         subplot(1,3,1), plot(x),title('Input'),xlabel('Samples'), ylabel('Amplitude'); 
         subplot(1,3,2), plot(y), title('Output'),xlabel('Samples'), ylabel('Amplitude'); 
         subplot(1,3,3), plot(z), title('Gain Reduction'),xlabel('Samples'), ylabel('Reduction'); 
+end

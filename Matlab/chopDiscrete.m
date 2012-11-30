@@ -4,7 +4,7 @@ function [ sgs ] = chopDiscrete( signal )
 % http://www.mathworks.com/help/dsp/examples/envelope-detection.html
 
 threshold = 0.5;
-bs = 128;
+bs = 256;
 count = ceil(length(signal)/bs);
 signal(count*bs) = 0;
 
